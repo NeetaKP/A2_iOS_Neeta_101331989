@@ -6,9 +6,20 @@
 //
 
 import UIKit
+import CoreData
 
-class AddProductViewController: UIViewController {
+class AddProductViewController:
+    UIViewController {
+    var prodItem:Produc?
 
+    @IBOutlet weak var editTextName: UITextField!
+    
+    @IBOutlet weak var editTextDescription: UITextField!
+    
+    @IBOutlet weak var editTextPrice: UITextField!
+    
+    @IBOutlet weak var editTextProvider: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
