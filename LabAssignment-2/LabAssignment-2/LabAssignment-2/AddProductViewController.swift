@@ -1,13 +1,13 @@
 //
-//  ProductListViewController.swift
+//  AddProductViewController.swift
 //  LabAssignment-2
 //
-//  Created by Niko Pant on 2025-03-21.
+//  Created by Niko Pant on 2025-03-22.
 //
 
 import UIKit
 
-class ProductListViewController: UIViewController {
+class AddProductViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
