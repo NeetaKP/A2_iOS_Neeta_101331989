@@ -9,7 +9,6 @@ import UIKit
 import CoreData
 
 struct Produc {
-    var id: UUID
     var name: String = ""
     var productDescription: String = ""
     var price: Double = 0.0
