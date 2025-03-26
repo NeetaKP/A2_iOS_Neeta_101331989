@@ -49,16 +49,36 @@ class AddProductViewController:
                 showAlert(message: "Provider is required.")
                 return
             }
-            
-            // Save the product info (You can save this to a database, file, etc.)
-            let productInfo = Produc(name: name, productDescription: description, price: price, provider: provider)
-            
-            // Optionally, you can print it or save to a persistent storage
-            print("Product Info Saved: \(productInfo)")
-            
-            // Show a success message
-            showAlert(message: "Product information saved successfully!")
+                    
+        // Save the product info (You can save this to a database, file, etc.)
+        let productInfo = Produc(id: UUID(), name: name, productDescription: description, price: price, provider: provider)
+        
+        saveProductToCoreData(product: productInfo);
+        
+        clearInputFields();
         }
+    
+    func saveProductToCoreData(product: Produc){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let context = appDelegate.managedObjectContext
+        
+        let newProductItem = ProductItem(context: context)
+        newProductItem.id = product.id
+        newProductItem.name = product.name
+        newProductItem.productDescription = product.productDescription
+        newProductItem.price = product.price
+        newProductItem.provider = product.provider
+        
+        do{
+            try context.save()
+            showAlert(message: "New product saved successfully")
+        } catch {
+            showAlert(message: "Error saving product")
+        }
+
+    }
         
         // Function to show alerts
         func showAlert(message: String) {
@@ -66,6 +86,13 @@ class AddProductViewController:
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+    
+    func clearInputFields(){
+        editTextName.text = ""
+        editTextDescription.text = ""
+        editTextPrice.text = ""
+        editTextProvider.text = ""
+    }
     
     /*
     // MARK: - Navigation
