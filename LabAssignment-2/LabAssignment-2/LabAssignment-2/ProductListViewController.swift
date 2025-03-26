@@ -22,12 +22,14 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 200
+        
+        
 
         
         fetchProducts()
     }
-    
+/*
     func fetchProducts() {
           // Create a fetch request for the ProductItem
           let fetchRequest: NSFetchRequest<ProductItem> = ProductItem.fetchRequest()
@@ -44,7 +46,7 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
               print("Failed to fetch products: \(error)")
           }
       }
-/*
+*/
     func fetchProducts() {
         products = fetchProductsFromCoreData()
         tableView.reloadData()
@@ -64,7 +66,7 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
             return []
         }
     }
-*/
+
 
     /*
     // MARK: - Navigation
@@ -83,12 +85,27 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
+        cell.detailTextLabel?.textColor = UIColor.black
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
+
+        
         let product = products[indexPath.row]
         
         cell.textLabel?.text = product.name
-        cell.detailTextLabel?.text = "Description: \(product.description.prefix(12) ?? "")"
+        cell.detailTextLabel?.text = "Description: \(product.productDescription ?? "No description available")"
+        
         
         return cell
+    }
+    
+    func tableview(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let product = products[indexPath.row]
+        print("Detail button tapped for product: \(product.name!)")
+        
+        let detailVC = ProductDetailViewController()
+        
+        detailVC.product! = product
+        navigationController?.pushViewController(detailVC, animated:true)
     }
 
 

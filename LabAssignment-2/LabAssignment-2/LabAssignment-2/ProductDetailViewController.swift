@@ -9,10 +9,17 @@ import UIKit
 
 class ProductDetailViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    var product: ProductItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if let product = product {
+            print("Product name: \(product.name)")
+        }
     }
     
 
