@@ -92,16 +92,89 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             switch indexPath.row {
             case 0:
                 // Display the product's name
-                cell.textLabel?.text = "Name: \(product.name ?? "No Name")"
+                // Create a mutable attributed string
+                let attributedString = NSMutableAttributedString()
+
+                // Append the bold "Name:" part
+                let boldAttributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.boldSystemFont(ofSize: 16)
+                ]
+                let nameText = NSAttributedString(string: "Name: ", attributes: boldAttributes)
+                attributedString.append(nameText)
+
+                // Append the regular product name part
+                let regularAttributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.systemFont(ofSize: 16)
+                ]
+                let productName = NSAttributedString(string: product.name ?? "No Name", attributes: regularAttributes)
+                attributedString.append(productName)
+                
+                cell.textLabel?.attributedText = attributedString
+                
             case 1:
                 // Display the product's description
-                cell.textLabel?.text = "Description: \(product.productDescription ?? "No Description")"
+                
+                let attributedString = NSMutableAttributedString()
+
+                // Append the bold "Name:" part
+                let boldAttributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.boldSystemFont(ofSize: 16)
+                ]
+                let nameText = NSAttributedString(string: "Description: ", attributes: boldAttributes)
+                attributedString.append(nameText)
+
+                // Append the regular product name part
+                let regularAttributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.systemFont(ofSize: 16)
+                ]
+                let productName = NSAttributedString(string: product.productDescription ?? "No Description", attributes: regularAttributes)
+                attributedString.append(productName)
+                
+                cell.textLabel?.attributedText = attributedString
+
+                //cell.textLabel?.text = "Description: \(product.productDescription ?? "No Description")"
             case 2:
                 // Display the product's price
-                cell.textLabel?.text = "Price: \(product.price)"
+                let attributedString = NSMutableAttributedString()
+
+                // Append the bold "Name:" part
+                let boldAttributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.boldSystemFont(ofSize: 16)
+                ]
+                let nameText = NSAttributedString(string: "Price: ", attributes: boldAttributes)
+                attributedString.append(nameText)
+
+                // Append the regular product name part
+                let regularAttributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.systemFont(ofSize: 16)
+                ]
+                let productName = NSAttributedString(string: String(product.price), attributes: regularAttributes)
+                attributedString.append(productName)
+                
+                cell.textLabel?.attributedText = attributedString
+
+                //cell.textLabel?.text = "Price: \(product.price)"
             case 3:
                 // Display the product's price
-                cell.textLabel?.text = "Provider: \(product.provider)"
+                let attributedString = NSMutableAttributedString()
+
+                // Append the bold "Name:" part
+                let boldAttributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.boldSystemFont(ofSize: 16)
+                ]
+                let nameText = NSAttributedString(string: "Provider: ", attributes: boldAttributes)
+                attributedString.append(nameText)
+
+                // Append the regular product name part
+                let regularAttributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.systemFont(ofSize: 16)
+                ]
+                let productName = NSAttributedString(string: product.provider ?? "No Provider", attributes: regularAttributes)
+                attributedString.append(productName)
+                
+                cell.textLabel?.attributedText = attributedString
+
+                //cell.textLabel?.text = "Provider: \(product.provider)"
             default:
                 break
             }
