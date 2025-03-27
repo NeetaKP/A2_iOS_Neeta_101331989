@@ -16,13 +16,28 @@ class ProductDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        //print("aaa",product!.name)
         if let product = product {
-            print("Product name: \(product.name)")
+            print("Product name: \(product.name ?? "No name") )")
         }
+        //updateUI()
     }
     
-
+    /*
+    func updateUI() {
+            guard let product = product else { return }
+            
+            //nameLabel.text = product.name
+            //descriptionLabel.text = product.description ?? "No description available"
+            //priceLabel.text = "Price: \(product.price)"
+            //providerLabel.text = "Provider: \(product.provider ?? "Unknown")"
+        }
+        
+        @IBAction func dismissButtonTapped(_ sender: UIButton) {
+            // Dismiss the modal view (optional)
+            dismiss(animated: true, completion: nil)
+        }
+     */
     /*
     // MARK: - Navigation
 

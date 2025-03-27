@@ -9,27 +9,56 @@ import UIKit
 import CoreData
 
 class ProductListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+        
+    //@IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var tableview: UITableView!
     var products: [ProductItem] = []
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        tableView.delegate = self
-        tableView.dataSource = self
+    //Do any additional setup after loadin the view.
+        tableview.delegate = self
+        tableview.dataSource = self
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 200
+        //tableview.rowHeight = UITableView.automaticDimension
+        //tableview.estimatedRowHeight = 200
         
         
 
         
         fetchProducts()
+        
+        
+        addDoubleTapGestureToTableView()
     }
-/*
+    
+    
+    func addDoubleTapGestureToTableView() {
+        print("0aaa")
+            let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(cellDoubleTapped(_:)))
+            doubleTapRecognizer.numberOfTapsRequired = 2 // Double-tap gesture
+            tableview.addGestureRecognizer(doubleTapRecognizer)
+        }
+    
+    @objc func cellDoubleTapped(_ gestureRecognizer: UITapGestureRecognizer) {
+        print("zzz")
+            let location = gestureRecognizer.location(in: tableview)
+            if let indexPath = tableview.indexPathForRow(at: location) {
+                print("aaa")
+                let product = products[indexPath.row]
+                print("Product double-tapped: \(product.name)")
+                
+                let detailVC = ProductDetailViewController()
+                detailVC.product = product // Pass the product object to the detail view controller
+                self.navigationController?.pushViewController(detailVC, animated: true)
+            }
+        }
+    
+    /*
     func fetchProducts() {
           // Create a fetch request for the ProductItem
           let fetchRequest: NSFetchRequest<ProductItem> = ProductItem.fetchRequest()
@@ -49,7 +78,7 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
 */
     func fetchProducts() {
         products = fetchProductsFromCoreData()
-        tableView.reloadData()
+        tableview.reloadData()
     }
     
     func fetchProductsFromCoreData() -> [ProductItem]{
@@ -104,10 +133,14 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
         
         let detailVC = ProductDetailViewController()
         
-        detailVC.product! = product
-        navigationController?.pushViewController(detailVC, animated:true)
+        //detailVC.product! = product
+        //navigationController?.pushViewController(detailVC, animated:true)
+        
+        detailVC.modalPresentationStyle = .fullScreen
+        present(detailVC, animated: true, completion: nil)
     }
 
 
 
 }
+
