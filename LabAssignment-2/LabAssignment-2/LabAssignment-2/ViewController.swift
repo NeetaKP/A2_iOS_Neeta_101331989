@@ -28,17 +28,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var textFieldDescription: UITextField!
     
     @IBOutlet weak var searchProductButton: UIButton!
-    
+
+
     var product: ProductItem?
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         product = fetchFirstProduct()
-        print("fetched product", product!.name)
-        print("fetched descr", product!.productDescription)
+            print("fetched product", product!.name ?? "n/a")
+            print("fetched descr", product!
+                .productDescription ?? "n/a")
         //displayProductInfo(product)
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        //let nib = UINib(nibName: "SearchCell", bundle: nil)
+        //    table2View.register(nib, forCellReuseIdentifier: "SearchCell")
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //context = appDelegate.managedObjectContext
+
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 20
@@ -46,7 +58,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         tableView.dataSource = self
         tableView.delegate = self
-
+        
+        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext // for deleting items
         
         tableView.reloadData()
     }
@@ -183,9 +196,74 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
 
     
-
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        if textFieldName.text?.isEmpty == true && textFieldDescription.text?.isEmpty == true {
+            showAlert(message: "Please enter at least a name or description to search.")
+        } else {
+            moveToSearchView()
+        }
+        //searchProducts()
+        print("search button pressed")
+        //deleteItemWithName(name: "n/a")
+    }
     
+    // Function to show alert
+        func showAlert(message: String) {
+            let alert = UIAlertController(title: "Input Error", message: message, preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            present(alert, animated: true, completion: nil)
+        }
+    
+    func moveToSearchView(){
+        // Get the values from the text fields
+        guard let name = textFieldName.text, !name.isEmpty,
+              let productDescr = textFieldDescription.text, !description.isEmpty else {
+                    // Handle case where one of the fields is empty
+                    return
+                }
+        
+      
+        if let searchVC = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController {
+                    // Pass data to the next view controller
+                    searchVC.name = name
+                    searchVC.productDescr = productDescr
+                    
+                    // Push the view controller
+                    navigationController?.pushViewController(searchVC, animated: true)
+                }
+    }
+    
+    var context: NSManagedObjectContext!
+    func deleteItemWithName(name: String) {
+            // Create a fetch request for the 'Item' entity
+            let fetchRequest: NSFetchRequest<ProductItem> = ProductItem.fetchRequest()
 
+            // Create a predicate to filter by name
+            let predicate = NSPredicate(format: "name == %@", name)
+            fetchRequest.predicate = predicate
+
+            do {
+                // Perform the fetch request
+                let items = try context.fetch(fetchRequest)
+
+                // Delete all matching items
+                for item in items {
+                    context.delete(item)
+                }
+
+                // Save the context to persist changes
+                try context.save()
+
+                print("Item(s) deleted successfully.")
+            } catch {
+                print("Failed to delete item: \(error)")
+            }
+        }
+    
+         
 
 }
 

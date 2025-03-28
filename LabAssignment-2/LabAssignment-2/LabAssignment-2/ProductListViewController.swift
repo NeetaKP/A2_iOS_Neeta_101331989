@@ -78,6 +78,10 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
 */
     func fetchProducts() {
         products = fetchProductsFromCoreData()
+        for product in products {
+            print("Name: \(product.name!), Descr: \(product.productDescription!)")
+        }
+        print("\(products)")
         tableview.reloadData()
     }
     
@@ -126,6 +130,8 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
         
         return cell
     }
+    
+
     
     func tableview(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let product = products[indexPath.row]
