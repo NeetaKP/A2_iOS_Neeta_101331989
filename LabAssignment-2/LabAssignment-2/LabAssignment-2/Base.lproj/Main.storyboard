@@ -185,6 +185,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQG-YL-1aW">
+                                <rect key="frame" x="132" y="80" width="129" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vya-hu-wg4"/>
                         <color key="backgroundColor" systemColor="tableBackgroundColor"/>
@@ -238,6 +245,13 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="M3j-ga-nRf"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgB-oQ-RaJ">
+                                <rect key="frame" x="114" y="112" width="164" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xXf-YM-d7T"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -417,6 +431,13 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="" id="sUw-rY-ynb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Searched Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAp-8L-dW7">
+                                <rect key="frame" x="100" y="107" width="193" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pit-ew-RjF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -450,7 +471,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8h9-9f-A99"/>
-        <segue reference="M3j-ga-nRf"/>
+        <segue reference="sUw-rY-ynb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right.page.on.clipboard" catalog="system" width="116" height="128"/>

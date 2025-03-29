@@ -101,7 +101,7 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
 
         case 1:
             // Display the product's description
-            /*
+            
             let attributedString = NSMutableAttributedString()
 
             // Append the bold "Name:" part
@@ -119,8 +119,8 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
             attributedString.append(productName)
             
             cell.textLabel?.attributedText = attributedString
-             */
-            cell.textLabel?.text = "Description: \(product.productDescription ?? "No Description")"
+             
+            //cell.textLabel?.text = "Description: \(product.productDescription ?? "No Description")"
         case 2:
             
             // Display the product's price
@@ -145,7 +145,7 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
             //cell.textLabel?.text = "Price: \(product.price)"
         case 3:
             // Display the product's price
-            /*
+            
             let attributedString = NSMutableAttributedString()
 
             // Append the bold "Name:" part
@@ -163,8 +163,8 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
             attributedString.append(productName)
             
             cell.textLabel?.attributedText = attributedString
-             */
-            cell.textLabel?.text = "Provider: \(product.provider)"
+             
+            //cell.textLabel?.text = "Provider: \(product.provider)"
         default:
             break
         }
