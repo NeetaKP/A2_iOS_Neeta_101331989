@@ -109,6 +109,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
+            // font style for name 
+            cell.textLabel?.textColor = UIColor.black
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 18)
 
             
             let item = productSearch[indexPath.row]
