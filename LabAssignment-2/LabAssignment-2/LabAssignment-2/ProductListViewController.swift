@@ -121,6 +121,10 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
         cell.detailTextLabel?.textColor = UIColor.black
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18)
 
+        // title text color and font size - sets
+        cell.textLabel?.textColor = UIColor.black
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 18)
+
         
         let product = products[indexPath.row]
         
