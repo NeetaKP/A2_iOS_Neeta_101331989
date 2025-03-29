@@ -53,12 +53,21 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
                 print("Product double-tapped: \(product.name)")
                 
                 //let detailVC = ProductDetailViewController()
-                let detailVC = ProductDetailViewController()
+                //let detailVC = ProductDetailViewController()
                 
                 
                 //detailVC.tableView.backgroundColor = UIColor.green
-                detailVC.product = product // Pass the product object to the detail view controller
-                self.navigationController?.pushViewController(detailVC, animated: true)
+                //detailVC.product = product // Pass the product object to the detail view controller
+                //self.navigationController?.pushViewController(detailVC, animated: true)
+                
+                if let detailsVC = storyboard?.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController {
+                            // Pass data to the next view controller
+                            detailsVC.product = product
+                            
+                            // Push the view controller
+                            navigationController?.pushViewController(detailsVC, animated: true)
+                        }
+
             }
         }
     

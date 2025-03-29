@@ -7,15 +7,27 @@
 
 import UIKit
 
-class ProductDetailViewController: UIViewController, UITableViewDataSource {
+class ProductDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
-    @IBOutlet weak var tableView: UITableView!
+    //@IBOutlet weak var tableView: UITableView!
     var product: ProductItem?
+    
+    var tableView: UITableView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //self.view.backgroundColor = UIColor.white
+        
+        //tableView = UITableView(frame: self.view.bounds, style: .plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        //tableView.backgroundColor = UIColor(red: 1.0, green: 0.8, blue: 0.6, alpha: 1.0)
         // Do any additional setup after loading the view.
         //print("aaa",product!.name)
         if let product = product {
@@ -51,7 +63,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource {
     }
     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,7 +74,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource {
         
         //cell.textLabel?.text = "Name: \(product.name)"
         
-        
+/*
         switch indexPath.row {
         case 0:
             // Display the product's name
@@ -152,7 +164,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource {
         default:
             break
         }
-
+*/
         return cell
     }
 
