@@ -77,7 +77,7 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
         switch indexPath.row {
         case 0:
             // Display the product's name
-            /*
+            
             // Create a mutable attributed string
             let attributedString = NSMutableAttributedString()
 
@@ -96,8 +96,8 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
             attributedString.append(productName)
             
             cell.textLabel?.attributedText = attributedString
-            */
-            cell.textLabel?.text = "Name: \(product.name ?? "No Name")"
+            
+            //cell.textLabel?.text = "Name: \(product.name ?? "No Name")"
 
         case 1:
             // Display the product's description
