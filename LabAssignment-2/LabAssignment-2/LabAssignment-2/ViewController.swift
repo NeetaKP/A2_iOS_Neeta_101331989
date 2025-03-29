@@ -235,7 +235,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     navigationController?.pushViewController(searchVC, animated: true)
                 }
     }
-    
+    // code for deleting data from core storage
     var context: NSManagedObjectContext!
     func deleteItemWithName(name: String) {
             // Create a fetch request for the 'Item' entity

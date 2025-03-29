@@ -182,9 +182,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="fJO-pe-wI2" kind="show" id="t3c-ox-5ck"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -193,11 +190,7 @@
                         <color key="backgroundColor" systemColor="tableBackgroundColor"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Item" image="arrow.right.page.on.clipboard" catalog="system" id="g1z-no-Zgt">
-                            <connections>
-                                <segue destination="fJO-pe-wI2" kind="show" id="tTx-hd-sPP"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem title="Item" image="arrow.right.page.on.clipboard" catalog="system" id="g1z-no-Zgt"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="uNz-57-pDz"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -214,7 +207,7 @@
             <objects>
                 <viewController title="ProductDetailViewController" id="fJO-pe-wI2" customClass="ProductDetailViewController" customModule="LabAssignment_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="72C-C7-aQc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product Detail Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqc-zw-zGB">
@@ -465,9 +458,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="t3c-ox-5ck"/>
         <segue reference="8h9-9f-A99"/>
-        <segue reference="sUw-rY-ynb"/>
+        <segue reference="wNo-qs-rxh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right.page.on.clipboard" catalog="system" width="116" height="128"/>
