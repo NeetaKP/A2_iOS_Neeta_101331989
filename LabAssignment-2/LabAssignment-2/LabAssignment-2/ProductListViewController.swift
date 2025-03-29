@@ -117,9 +117,9 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
+        // title text color and font size - sets
         cell.detailTextLabel?.textColor = UIColor.black
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18)
 
         
         let product = products[indexPath.row]
