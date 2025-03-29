@@ -19,6 +19,8 @@ class ProductDetailViewController: UIViewController {
         //print("aaa",product!.name)
         if let product = product {
             print("Product name: \(product.name ?? "No name") )")
+        }else{
+            print("invalid product") // few statments added for debugging
         }
         //updateUI()
     }
