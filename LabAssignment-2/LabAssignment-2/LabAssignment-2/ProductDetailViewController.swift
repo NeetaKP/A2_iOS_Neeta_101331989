@@ -10,11 +10,10 @@ import UIKit
 class ProductDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
-    //@IBOutlet weak var tableView: UITableView!
     var product: ProductItem?
     
-    var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     
     
     override func viewDidLoad() {
@@ -63,7 +62,7 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,10 +73,11 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
         //cell.textLabel?.text = "Name: \(product.name)"
         
-/*
+
         switch indexPath.row {
         case 0:
             // Display the product's name
+            /*
             // Create a mutable attributed string
             let attributedString = NSMutableAttributedString()
 
@@ -96,10 +96,12 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
             attributedString.append(productName)
             
             cell.textLabel?.attributedText = attributedString
-            
+            */
+            cell.textLabel?.text = "Name: \(product.name ?? "No Name")"
+
         case 1:
             // Display the product's description
-            
+            /*
             let attributedString = NSMutableAttributedString()
 
             // Append the bold "Name:" part
@@ -117,9 +119,10 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
             attributedString.append(productName)
             
             cell.textLabel?.attributedText = attributedString
-
-            //cell.textLabel?.text = "Description: \(product.productDescription ?? "No Description")"
+             */
+            cell.textLabel?.text = "Description: \(product.productDescription ?? "No Description")"
         case 2:
+            /*
             // Display the product's price
             let attributedString = NSMutableAttributedString()
 
@@ -138,10 +141,11 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
             attributedString.append(productName)
             
             cell.textLabel?.attributedText = attributedString
-
-            //cell.textLabel?.text = "Price: \(product.price)"
+             */
+            cell.textLabel?.text = "Price: \(product.price)"
         case 3:
             // Display the product's price
+            /*
             let attributedString = NSMutableAttributedString()
 
             // Append the bold "Name:" part
@@ -159,12 +163,12 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
             attributedString.append(productName)
             
             cell.textLabel?.attributedText = attributedString
-
-            //cell.textLabel?.text = "Provider: \(product.provider)"
+             */
+            cell.textLabel?.text = "Provider: \(product.provider)"
         default:
             break
         }
-*/
+
         return cell
     }
 
