@@ -146,10 +146,10 @@
             </objects>
             <point key="canvasLocation" x="944.27480916030527" y="3.5211267605633805"/>
         </scene>
-        <!--ProductListViewController-->
+        <!--Product List-->
         <scene sceneID="f7f-BA-4hu">
             <objects>
-                <viewController title="ProductListViewController" id="0Bp-UQ-JH8" customClass="ProductListViewController" customModule="LabAssignment_2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Product List" id="0Bp-UQ-JH8" customClass="ProductListViewController" customModule="LabAssignment_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wj6-dJ-08w">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="1661.8320610687022" y="-6.3380281690140849"/>
         </scene>
-        <!--ProductDetailViewController-->
+        <!--Product Details-->
         <scene sceneID="1UH-aO-ewF">
             <objects>
-                <viewController storyboardIdentifier="ProductDetailViewController" title="ProductDetailViewController" id="tfd-Y0-zyP" customClass="ProductDetailViewController" customModule="LabAssignment_2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailViewController" title="Product Details" id="tfd-Y0-zyP" customClass="ProductDetailViewController" customModule="LabAssignment_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6fc-dn-l04">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

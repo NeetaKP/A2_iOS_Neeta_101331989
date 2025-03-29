@@ -122,7 +122,7 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
              */
             cell.textLabel?.text = "Description: \(product.productDescription ?? "No Description")"
         case 2:
-            /*
+            
             // Display the product's price
             let attributedString = NSMutableAttributedString()
 
@@ -141,8 +141,8 @@ class ProductDetailViewController: UIViewController, UITableViewDelegate, UITabl
             attributedString.append(productName)
             
             cell.textLabel?.attributedText = attributedString
-             */
-            cell.textLabel?.text = "Price: \(product.price)"
+             
+            //cell.textLabel?.text = "Price: \(product.price)"
         case 3:
             // Display the product's price
             /*
