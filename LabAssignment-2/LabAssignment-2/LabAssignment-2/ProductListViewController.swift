@@ -9,27 +9,16 @@ import UIKit
 import CoreData
 
 class ProductListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-        
-    //@IBOutlet weak var tableView: UITableView!
-    
+            
     @IBOutlet weak var tableview: UITableView!
     var products: [ProductItem] = []
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    //Do any additional setup after loadin the view.
         tableview.delegate = self
         tableview.dataSource = self
-        
-        //tableview.rowHeight = UITableView.automaticDimension
-        //tableview.estimatedRowHeight = 200
-        
-        
-
-        
+                
         fetchProducts()
         
         
@@ -51,15 +40,7 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
                 print("aaa")
                 let product = products[indexPath.row]
                 print("Product double-tapped: \(product.name)")
-                
-                //let detailVC = ProductDetailViewController()
-                //let detailVC = ProductDetailViewController()
-                
-                
-                //detailVC.tableView.backgroundColor = UIColor.green
-                //detailVC.product = product // Pass the product object to the detail view controller
-                //self.navigationController?.pushViewController(detailVC, animated: true)
-                
+                                
                 if let detailsVC = storyboard?.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController {
                             // Pass data to the next view controller
                             detailsVC.product = product
@@ -67,28 +48,9 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
                             // Push the view controller
                             navigationController?.pushViewController(detailsVC, animated: true)
                         }
-
             }
         }
     
-    /*
-    func fetchProducts() {
-          // Create a fetch request for the ProductItem
-          let fetchRequest: NSFetchRequest<ProductItem> = ProductItem.fetchRequest()
-          
-          // Get the managed object context
-          guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-          let context = appDelegate.managedObjectContext
-          
-          do {
-              // Perform the fetch request and get the results
-              products = try context.fetch(fetchRequest)
-              tableView.reloadData()
-          } catch {
-              print("Failed to fetch products: \(error)")
-          }
-      }
-*/
     func fetchProducts() {
         products = fetchProductsFromCoreData()
         for product in products {
@@ -114,15 +76,8 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
     }
 
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
@@ -137,7 +92,6 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
         // title text color and font size - sets
         cell.textLabel?.textColor = UIColor.black
         cell.textLabel?.font = UIFont.systemFont(ofSize: 18)
-
         
         let product = products[indexPath.row]
         
@@ -147,7 +101,6 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
         
         return cell
     }
-    
 
     
     func tableview(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -155,15 +108,10 @@ class ProductListViewController: UIViewController, UITableViewDataSource, UITabl
         print("Detail button tapped for product: \(product.name!)")
         
         let detailVC = ProductDetailViewController()
-        
-        //detailVC.product! = product
-        //navigationController?.pushViewController(detailVC, animated:true)
-        
+                
         detailVC.modalPresentationStyle = .fullScreen
         present(detailVC, animated: true, completion: nil)
     }
-
-
 
 }
 

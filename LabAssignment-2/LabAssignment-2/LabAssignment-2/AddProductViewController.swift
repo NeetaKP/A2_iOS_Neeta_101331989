@@ -50,13 +50,13 @@ class AddProductViewController:
                 return
             }
                     
-        // Save the product info (You can save this to a database, file, etc.)
+        // Save the product info
         let productInfo = Produc(id: UUID(), name: name, productDescription: description, price: price, provider: provider)
         
         saveProductToCoreData(product: productInfo);
         
         clearInputFields();
-        }
+    }
     
     func saveProductToCoreData(product: Produc){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -80,12 +80,12 @@ class AddProductViewController:
 
     }
         
-        // Function to show alerts
-        func showAlert(message: String) {
-            let alert = UIAlertController(title: "Information", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+    // Function to show alerts
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Information", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func clearInputFields(){
         editTextName.text = ""
@@ -94,14 +94,8 @@ class AddProductViewController:
         editTextProvider.text = ""
     }
     
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

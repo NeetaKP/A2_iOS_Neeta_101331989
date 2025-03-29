@@ -17,7 +17,6 @@ struct Produc {
 }
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-//    private let button: UIButton = {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -41,16 +40,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("fetched product", product!.name ?? "n/a")
             print("fetched descr", product!
                 .productDescription ?? "n/a")
-        //displayProductInfo(product)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        
-        //let nib = UINib(nibName: "SearchCell", bundle: nil)
-        //    table2View.register(nib, forCellReuseIdentifier: "SearchCell")
-        
+                
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //context = appDelegate.managedObjectContext
-
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 20
@@ -89,7 +82,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
               
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            // We have 3 rows for product name, description, and price
+            // We have 4 rows for product name, description, price, and provider
             return 4
         }
 
@@ -98,10 +91,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             
             guard let product = product else { return cell }
-            
-            //cell.textLabel?.text = "Name: \(product.name)"
-            
-            
+                    
             switch indexPath.row {
             case 0:
                 // Display the product's name
@@ -145,7 +135,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 cell.textLabel?.attributedText = attributedString
 
-                //cell.textLabel?.text = "Description: \(product.productDescription ?? "No Description")"
             case 2:
                 // Display the product's price
                 let attributedString = NSMutableAttributedString()
@@ -166,9 +155,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 cell.textLabel?.attributedText = attributedString
 
-                //cell.textLabel?.text = "Price: \(product.price)"
             case 3:
-                // Display the product's price
+                // Display the product's provider
                 let attributedString = NSMutableAttributedString()
 
                 // Append the bold "Name:" part
@@ -187,7 +175,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 cell.textLabel?.attributedText = attributedString
 
-                //cell.textLabel?.text = "Provider: \(product.provider)"
             default:
                 break
             }
@@ -202,20 +189,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             moveToSearchView()
         }
-        //searchProducts()
         print("search button pressed")
         //deleteItemWithName(name: "n/a")
     }
     
     // Function to show alert
-        func showAlert(message: String) {
-            let alert = UIAlertController(title: "Input Error", message: message, preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            
-            present(alert, animated: true, completion: nil)
-        }
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Input Error", message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
     
     func moveToSearchView(){
         // Get the values from the text fields
@@ -235,6 +221,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     navigationController?.pushViewController(searchVC, animated: true)
                 }
     }
+    
     // code for deleting data from core storage
     var context: NSManagedObjectContext!
     func deleteItemWithName(name: String) {

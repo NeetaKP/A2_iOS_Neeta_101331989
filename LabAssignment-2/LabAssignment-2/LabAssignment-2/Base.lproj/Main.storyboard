@@ -209,10 +209,10 @@
             </objects>
             <point key="canvasLocation" x="1661.8320610687022" y="-6.3380281690140849"/>
         </scene>
-        <!--Product Details-->
+        <!--Product Detail View Controller-->
         <scene sceneID="1UH-aO-ewF">
             <objects>
-                <viewController storyboardIdentifier="ProductDetailViewController" title="Product Details" id="tfd-Y0-zyP" customClass="ProductDetailViewController" customModule="LabAssignment_2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailViewController" id="tfd-Y0-zyP" customClass="ProductDetailViewController" customModule="LabAssignment_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6fc-dn-l04">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -379,10 +379,10 @@
             </objects>
             <point key="canvasLocation" x="3135" y="-6"/>
         </scene>
-        <!--SearchViewController-->
+        <!--Search View Controller-->
         <scene sceneID="Wa7-jm-2Ia">
             <objects>
-                <viewController storyboardIdentifier="SearchViewController" title="SearchViewController" id="bHn-3N-JEc" customClass="SearchViewController" customModule="LabAssignment_2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="bHn-3N-JEc" customClass="SearchViewController" customModule="LabAssignment_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="elp-91-e8T">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -471,7 +471,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8h9-9f-A99"/>
-        <segue reference="sUw-rY-ynb"/>
+        <segue reference="M3j-ga-nRf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right.page.on.clipboard" catalog="system" width="116" height="128"/>
